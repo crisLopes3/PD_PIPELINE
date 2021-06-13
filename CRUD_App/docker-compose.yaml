@@ -1,9 +1,10 @@
 version: '3'
 services:
-  # my-app:
-    # image: ${docker-registry}/my-app:1.0
-    # ports:
-     # - 3000:3000
+  my-app:
+    image: "my-app:1.0"
+    ports:
+     - 3000:3000
+    container_name: "my-app-crud"
   mongodb:
     image: mongo
     ports:
@@ -11,6 +12,7 @@ services:
     environment:
      - MONGO_INITDB_ROOT_USERNAME=admin                
      - MONGO_INITDB_ROOT_PASSWORD=password
+    container_name: "my-mongodb"
   mongo-express:
     image: mongo-express
     ports:
@@ -19,3 +21,4 @@ services:
      - ME_CONFIG_MONGODB_ADMINUSERNAME=admin                
      - ME_CONFIG_MONGODB_ADMINPASSWORD=password
      - ME_CONFIG_MONGODB_SERVER=mongodb
+    container_name: "my-mongo-express"
